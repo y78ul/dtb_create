@@ -7,7 +7,8 @@ from parsers.dtb import DTB
 
 
 def lets_rumble(argv):
-    USAGE = 'main.py -f <input fcc-file> -c <input crtc-file> -t <input text-file> -d <output file>'
+    USAGE = 'main.py -f <input fcc-file> -c <input crtc-file> -t <input text-file> -d <DTB output file> ' \
+            '-s <SCP output file>'
     fcc_file = ''
     crtc_file = ''
     text_file = ''

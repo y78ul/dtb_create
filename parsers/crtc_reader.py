@@ -20,7 +20,6 @@ class CrtcFileParser(FileParser):
                 if not location and len(line) >= ALTERNATIVE_LOCATION_END_POS+1:
                     location = line[ALTERNATIVE_LOCATION_START_POS:ALTERNATIVE_LOCATION_END_POS].strip()
 
-                # Request by DL5AXX Feb. 2017:
                 # Special treatment for NL and VO1/VO2:
                 # 	Treat VO1 in NL as NF
                 # 	Treat VO2 in NL as LB"""

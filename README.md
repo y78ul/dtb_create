@@ -1,7 +1,4 @@
 # Welcome to DTBcreate
-
-Contact: lm@contestsoftware.com
-
 DTBcreate is to convert different types of database files such as
  - FCC databases (list of U.S. radio amateurs)
  - CRTC databases (list of Canadian radio amateurs)

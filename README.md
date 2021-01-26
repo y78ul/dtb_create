@@ -3,6 +3,7 @@ DTBcreate is to convert different types of database files such as
  - FCC databases (list of U.S. radio amateurs)
  - CRTC databases (list of Canadian radio amateurs)
  - any space delimited ASCII text file
+
 to a binary Win-Test database file (DTB).
 
 ## Input files

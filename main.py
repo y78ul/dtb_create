@@ -14,11 +14,15 @@ def lets_rumble(argv):
     text_file = ''
     dtb_output_file = ''
     scp_output_file = ''
+    opts = None
     try:
         opts, args = getopt.getopt(argv, 'f:c:t:d:s:', ['fcc=', 'crtc=', 'text=', 'dtb=', 'scp='])
     except getopt.GetoptError:
+        pass
+    if not opts:
         print(USAGE)
         sys.exit(2)
+
     for opt, arg in opts:
         if opt in ('-f', '--fcc'):
             fcc_file = arg
@@ -57,4 +61,5 @@ def lets_rumble(argv):
 
 
 if __name__ == '__main__':
+    # Args example: --fcc C:\EN.dat --crtc C:\amateur.txt --text C:\text.prn -d C:\a.dtb -s C:\a.scp
     lets_rumble(sys.argv[1:])

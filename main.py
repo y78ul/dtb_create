@@ -24,16 +24,12 @@ def lets_rumble(argv):
         sys.exit(2)
 
     for opt, arg in opts:
-        if opt in ('-f', '--fcc'):
-            fcc_file = arg
-        elif opt in ('-c', '--crtc'):
-            crtc_file = arg
-        elif opt in ('-t', '--text'):
-            text_file = arg
-        elif opt in ('-d', '--dtb'):
-            dtb_output_file = arg
-        elif opt in ('-s', '--scp'):
-            scp_output_file = arg
+        match opt:
+            case '-f' | '--fcc': fcc_file = arg
+            case '-c' | '--crtc': crtc_file = arg
+            case '-t' | '--text': text_file = arg
+            case '-d' | '--dtb': dtb_output_file = arg
+            case '-s' | '--scp': scp_output_file = arg
 
     print(f'FCC input file = {fcc_file}')
     print(f'CRTC input file = {crtc_file}')
@@ -61,5 +57,5 @@ def lets_rumble(argv):
 
 
 if __name__ == '__main__':
-    # Args example: --fcc C:\EN.dat --crtc C:\amateur.txt --text C:\text.prn -d C:\a.dtb -s C:\a.scp
+    # Args example: --fcc C:\EN.dat --crtc C:\amateur.txt --dtb C:\ARRL-USVE.dtb --scp C:\Master.scp
     lets_rumble(sys.argv[1:])

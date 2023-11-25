@@ -1,5 +1,6 @@
 import sys
 import getopt
+
 from parsers.fcc_file_parser import FccFileParser
 from parsers.crtc_reader import CrtcFileParser
 from parsers.text_file_parser import TextFileParser

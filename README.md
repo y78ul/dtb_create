@@ -10,8 +10,7 @@ to a binary Win-Test database file (DTB).
 Please note: These information may change fast. Please take it with care.
 
 ### FCC database
- - Upon 2020, FCC database files were available at _http://wireless.fcc.gov/uls/data/complete/l_amat.zip_
- - Since 2021: _ftp://wirelessftp.fcc.gov/pub/uls/complete/l_amat.zip_
+Source: _ftp://wirelessftp.fcc.gov/pub/uls/complete/l_amat.zip_
 
 By default, the only file of interest is the _EN.dat_. The columns of this file are separated by '|' characters. The columns of interest are
  - Call sign between 4th and 5th "|" and
@@ -24,14 +23,9 @@ EN|215001|||AA0AA|L|L00196154|MONKS, WILLIAM S|WILLIAM|S|MONKS|||||3258 TAMU|Col
 </pre>
 
 ### CRTC database
-Upon 2010, the default database file was called amateur.rpt, it could be loaded as a ZIP file using _wget_ from here:
-_wget -c --no-passive-ftp ftp://ftp.rac.ca/pub/cdncaldb.zip_
+Source: _http://apc-cap.ic.gc.ca/datafiles/amateur.zip_
 
-From 2011 on, the database name is amateur.txt as part of a ZIP file:
- - 2011 the way to get it was with the following link: _http://205.236.99.41/%7Eindicatif/download/amateur.zip_
- - From 2012 on (at least upon 2021) the following link worked: _http://apc-cap.ic.gc.ca/datafiles/amateur.zip_
-
-It's a plain ASCI text file, too. Each record (= line) is in the following format:
+The file of interest is _amateur.txt_. It's a plain ASCI text file, too. Each record (= line) is in the following format:
 <pre>
  FIELD                    STARTING COLUMN   LENGTH
  ~~~~~                    ~~~~~~~~~~~~~~~   ~~~~~~

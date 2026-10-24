@@ -4,6 +4,7 @@ import getopt
 from parsers.fcc_file_parser import FccFileParser
 from parsers.crtc_reader import CrtcFileParser
 from parsers.text_file_parser import TextFileParser
+from parsers.dtb_files_merger import merge_dtb_files
 from parsers.dtb import DTB
 
 
@@ -15,9 +16,11 @@ def lets_rumble(argv):
     text_file = ''
     dtb_output_file = ''
     scp_output_file = ''
+    merge_x_file = ''
+    merge_y_file = ''
     opts = None
     try:
-        opts, args = getopt.getopt(argv, 'f:c:t:d:s:', ['fcc=', 'crtc=', 'text=', 'dtb=', 'scp='])
+        opts, args = getopt.getopt(argv, 'f:c:t:d:s:x:y:', ['fcc=', 'crtc=', 'text=', 'dtb=', 'scp=', 'merge_x', 'merge_y'])
     except getopt.GetoptError:
         pass
     if not opts:
@@ -31,10 +34,14 @@ def lets_rumble(argv):
             case '-t' | '--text': text_file = arg
             case '-d' | '--dtb': dtb_output_file = arg
             case '-s' | '--scp': scp_output_file = arg
+            case '-x' | '--merge_x': merge_x_file = arg
+            case '-y' | '--merge_y': merge_y_file = arg
 
     print(f'FCC input file = {fcc_file}')
     print(f'CRTC input file = {crtc_file}')
     print(f'Text input file = {text_file}')
+    print(f'Merge X input file = {merge_x_file}')
+    print(f'Merge Y input file = {merge_y_file}')
     print(f'DTB output file = {dtb_output_file}')
     print(f'SCP output file = {scp_output_file}')
 
@@ -46,6 +53,8 @@ def lets_rumble(argv):
         dtb.add_list(CrtcFileParser(crtc_file).dtb)
     if text_file:
         dtb.add_list(TextFileParser(text_file).dtb)
+    if merge_x_file and merge_y_file:
+        dtb.add_list(merge_dtb_files(merge_x_file, merge_y_file))
 
     # Write the output files
     if len(dtb.items) == 0:
@@ -58,5 +67,6 @@ def lets_rumble(argv):
 
 
 if __name__ == '__main__':
-    # Args example: --fcc C:\EN.dat --crtc C:\amateur.txt --dtb C:\ARRL-USVE.dtb --scp C:\Master.scp
+    # Args for ARRL: --fcc C:\EN.dat --crtc C:\amateur.txt --dtb C:\ARRL-USVE.dtb --scp C:\Master.scp
+    # Args for WAG merge: -x C:\temp\WAG_DL.dtb -y C:\temp\WAG_DL_DK9TN.dtb --dtb C:\temp\WAG_DL_m.dtb
     lets_rumble(sys.argv[1:])
